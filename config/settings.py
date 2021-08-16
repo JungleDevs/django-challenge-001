@@ -58,38 +58,6 @@ LOCAL_APPS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
-# TEMPLATES
-# ------------------------------------------------------------------------------
-# https://docs.djangoproject.com/en/dev/ref/settings/#templates
-TEMPLATES = [
-    {
-        # https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-TEMPLATES-BACKEND
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        # https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
-        "DIRS": [str(APPS_DIR / "templates")],
-        "OPTIONS": {
-            # https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
-            # https://docs.djangoproject.com/en/dev/ref/templates/api/#loader-types
-            "loaders": [
-                "django.template.loaders.filesystem.Loader",
-                "django.template.loaders.app_directories.Loader",
-            ],
-            # https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
-            "context_processors": [
-                "django.template.context_processors.debug",
-                "django.template.context_processors.request",
-                "django.contrib.auth.context_processors.auth",
-                "django.template.context_processors.i18n",
-                "django.template.context_processors.media",
-                "django.template.context_processors.static",
-                "django.template.context_processors.tz",
-                "django.contrib.messages.context_processors.messages",
-                "ambar.utils.context_processors.settings_context",
-            ],
-        },
-    }
-]
-
 
 # URLS
 # ------------------------------------------------------------------------------
@@ -104,6 +72,20 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 DATABASES = {"default": env.db("DATABASE_URL", default="postgis://test_user:qwer1234@127.0.0.1:5432/jungledevs")}
 
+
+# AUTHENTICATION
+# ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#authentication-backends
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+]
+
+# https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
+AUTH_USER_MODEL = "users.User"
+# https://docs.djangoproject.com/en/dev/ref/settings/#login-redirect-url
+LOGIN_REDIRECT_URL = "users:redirect"
+# https://docs.djangoproject.com/en/dev/ref/settings/#login-url
+LOGIN_URL = "account_login"
 
 # PASSWORDS
 # ------------------------------------------------------------------------------
@@ -158,18 +140,6 @@ LANGUAGES = (
 )
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-STATIC_URL = "/static/"
-
-STATICFILES_DIRS = [str(APPS_DIR / "static")]
-
-# https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
-STATICFILES_FINDERS = [
-    "django.contrib.staticfiles.finders.FileSystemFinder",
-    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-]
 
 
 # django-rest-framework
@@ -199,3 +169,28 @@ SIMPLE_JWT = {
 # ------------------------------------------------------------------------------
 # Django Admin URL.
 ADMIN_URL = "admin/"
+
+
+# STATIC
+# ------------------------------------------------------------------------------
+STATIC_URL = "/static/"
+
+
+# TEMPLATES
+# ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#templates
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
