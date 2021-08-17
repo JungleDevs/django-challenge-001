@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from rest_framework.generics import CreateAPIView
-from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
+from rest_framework.permissions import AllowAny
 
 from jungledevs.users.api.serializers import UserSerializer
 

@@ -11,11 +11,59 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+msgid "Author ID"
+msgstr "Autor"
+
+msgid "Category ID"
+msgstr "Categoria"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "Summary"
+msgstr "Sumário"
+
+msgid "First Paragraph"
+msgstr "Primeiro Parágrafo"
+
+msgid "Body"
+msgstr "Corpo"
+
+msgid "Article"
+msgstr "Artigo"
+
+msgid "Articles"
+msgstr "Artigos"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Category"
+msgstr "Categoria"
+
+msgid "Categories"
+msgstr "Categorias"
+
+msgid "Picture"
+msgstr "Foto"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Authors"
+msgstr "Autores"
+
 msgid "Users"
-msgstr ""
+msgstr "Usuários"
+
+msgid "Date of Birth"
+msgstr "Data de Aniversário"
+
+msgid "Phone"
+msgstr "Telefone"
 
 msgid "Creation Date"
-msgstr ""
+msgstr "Data de Criação"
 
 msgid "Update Date"
-msgstr ""
+msgstr "Data de Atualização"
