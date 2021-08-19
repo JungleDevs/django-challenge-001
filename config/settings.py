@@ -71,18 +71,8 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {"default": env.db("DATABASE_URL", default="postgis://test_user:qwer1234@127.0.0.1:5432/jungledevs")}
+DATABASES = {"default": env.db("DATABASE_URL", default="postgis://test_user:qwer1234@127.0.0.1:5432/jungledevs")}
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "ausanxyq",
-        "USER": "ausanxyq",
-        "PASSWORD": "FMBkbmetG5XK7xaLEG_2ifU2Eo3WufVA",
-        "HOST": "kesavan.db.elephantsql.com",
-        "PORT": "5432",
-    }
-}
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
