@@ -79,7 +79,6 @@ class SearchArticleSerializer(ModelSerializer):
             "category",
             "title",
             "summary",
-            "firstParagraph",
         ]
 
     def get_author(self, obj):

@@ -63,9 +63,9 @@ class ArticleDetailView(RetrieveAPIView):
 
 
 class ArticleSearchView(ListAPIView):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (AllowAny,)
     serializer_class = SearchArticleSerializer
     lookup_url_kwarg = "category"
 
     def get_queryset(self):
-        return Article.objects.filter(category__name=self.request.query_params.get("category")).order_by("id")
+        return Article.objects.filter(category__name__icontains=self.request.query_params.get("category")).order_by("id")
