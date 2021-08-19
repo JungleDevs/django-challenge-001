@@ -14,10 +14,10 @@ from jungledevs.utils.base_model import BaseModel
 class Article(BaseModel):
     author = ForeignKey("authors.Author", on_delete=CASCADE, verbose_name=_("Author ID"))
     category = ForeignKey("Category", on_delete=PROTECT, verbose_name=_("Category ID"))
-    title = CharField(max_length=30, verbose_name=_("Title"))
-    summary = CharField(max_length=100, verbose_name=_("Summary"))
-    firstParagraph = CharField(max_length=100, verbose_name=_("First Paragraph"))
-    body = CharField(max_length=100, verbose_name=_("Body"))
+    title = CharField(max_length=150, verbose_name=_("Title"))
+    summary = CharField(max_length=300, verbose_name=_("Summary"))
+    firstParagraph = CharField(max_length=300, verbose_name=_("First Paragraph"))
+    body = CharField(max_length=500, verbose_name=_("Body"))
     objects = QuerySet.as_manager()
 
     class Meta:
