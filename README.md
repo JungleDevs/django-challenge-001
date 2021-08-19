@@ -1,6 +1,6 @@
 # Jungle Devs - Django Challenge #001
 
-## Documentation 
+## [Documentation](https://github.com/rgzfx/django-challenge-001/wiki) 
 
 ## To install Git
 ``` shell
