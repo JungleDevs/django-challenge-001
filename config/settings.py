@@ -26,7 +26,7 @@ env = environ.Env()
 SECRET_KEY = "264n^jrmr5y0^a%2zeu_e*j*#jhjjc2p#v2bnw(+uk3v@p&qs%"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -140,7 +140,6 @@ LANGUAGES = (
 )
 
 
-# django-rest-framework
 # -------------------------------------------------------------------------------
 # django-rest-framework - https://www.django-rest-framework.org/api-guide/settings/
 REST_FRAMEWORK = {
