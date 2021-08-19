@@ -15,4 +15,4 @@ class ArticleAdmin(ModelAdmin):
 class CategoryAdmin(ModelAdmin):
     list_display = ["name"]
     search_fields = ["name"]
-    list_filter = ("name", )
+    list_filter = ("name",)

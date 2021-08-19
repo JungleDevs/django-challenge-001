@@ -28,7 +28,8 @@ SECRET_KEY = "264n^jrmr5y0^a%2zeu_e*j*#jhjjc2p#v2bnw(+uk3v@p&qs%"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+# https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
+ALLOWED_HOSTS = ["*"]
 
 
 # APPS
@@ -70,8 +71,18 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {"default": env.db("DATABASE_URL", default="postgis://test_user:qwer1234@127.0.0.1:5432/jungledevs")}
+# DATABASES = {"default": env.db("DATABASE_URL", default="postgis://test_user:qwer1234@127.0.0.1:5432/jungledevs")}
 
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "ausanxyq",
+        "USER": "ausanxyq",
+        "PASSWORD": "FMBkbmetG5XK7xaLEG_2ifU2Eo3WufVA",
+        "HOST": "kesavan.db.elephantsql.com",
+        "PORT": "5432",
+    }
+}
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------

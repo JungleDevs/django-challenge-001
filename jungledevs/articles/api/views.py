@@ -9,6 +9,7 @@ from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 
 from jungledevs.articles.api.serializers import (
     AdminArticlesSerializer,
+    AdminCategorySerializer,
     AnonymousSerializer,
     LoggedSerializer,
     SearchArticleSerializer,
@@ -36,7 +37,7 @@ class RetrieveUpdateDestroyArticleView(BaseAdminArticleView, RetrieveUpdateDestr
 
 class BaseAdminCategoryView(object):
     queryset = Category.objects.all()
-    serializer_class = AdminArticlesSerializer
+    serializer_class = AdminCategorySerializer
     permission_classes = (IsAdminUser,)
 
 

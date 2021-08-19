@@ -8,4 +8,4 @@ from jungledevs.authors.models import Author
 class ArticleAdmin(ModelAdmin):
     list_display = ["name", "picture"]
     search_fields = ["name"]
-    list_filter = ("name", )
+    list_filter = ("name",)
