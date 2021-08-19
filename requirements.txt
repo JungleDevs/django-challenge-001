@@ -6,7 +6,6 @@ psycopg2-binary==2.8.5  # https://github.com/psycopg/psycopg2
 djangorestframework-simplejwt==4.4.0
 djangorestframework-jwt==1.11.0
 argon2-cffi==19.2.0
-django-filter==2.4.0
 
 # Testing
 # ------------------------------------------------------------------------------

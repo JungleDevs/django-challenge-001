@@ -1,4 +1,3 @@
-from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.generics import (
     CreateAPIView,
     ListAPIView,
@@ -18,7 +17,7 @@ from jungledevs.articles.models import Article, Category
 
 
 class BaseAdminArticleView(object):
-    queryset = Article.objects.all()
+    queryset = Article.objects.all().order_by("id")
     serializer_class = AdminArticlesSerializer
     permission_classes = (IsAdminUser,)
 
@@ -36,7 +35,7 @@ class RetrieveUpdateDestroyArticleView(BaseAdminArticleView, RetrieveUpdateDestr
 
 
 class BaseAdminCategoryView(object):
-    queryset = Category.objects.all()
+    queryset = Category.objects.all().order_by("id")
     serializer_class = AdminCategorySerializer
     permission_classes = (IsAdminUser,)
 
@@ -55,7 +54,7 @@ class RetrieveUpdateDestroyCategoryView(BaseAdminCategoryView, RetrieveUpdateDes
 
 class ArticleDetailView(RetrieveAPIView):
     permission_classes = (AllowAny,)
-    queryset = Article.objects.all()
+    queryset = Article.objects.all().order_by("id")
 
     def get_serializer_class(self):
         if self.request.user.is_authenticated:
@@ -65,7 +64,8 @@ class ArticleDetailView(RetrieveAPIView):
 
 class ArticleSearchView(ListAPIView):
     permission_classes = (IsAuthenticated,)
-    search_fields = ["category__name"]
-    filter_backends = [DjangoFilterBackend]
     serializer_class = SearchArticleSerializer
-    queryset = Article.objects.all()
+    lookup_url_kwarg = "category"
+
+    def get_queryset(self):
+        return Article.objects.filter(category__name=self.request.query_params.get("category")).order_by("id")
